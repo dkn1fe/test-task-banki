@@ -107,7 +107,7 @@ export default {
   }
 
   &__card__list {
-    padding-top: 48px;
+    padding: 48px 0px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 32px;
@@ -196,9 +196,6 @@ export default {
   opacity: 50%;
 }
 
-
-
-
 @media (max-width: 1220px) {
   .picture {
     &__card__list {
@@ -214,6 +211,7 @@ export default {
   .picture {
     &__card__list {
       grid-template-columns: repeat(1, 1fr);
+      padding:48px 16px;
     }
   }
 };

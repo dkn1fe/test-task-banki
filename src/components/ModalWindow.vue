@@ -2,7 +2,7 @@
   <div class="overlay" @click="setIsOpenModal(null, false)">
     <div class="modal" @click.stop>
       <div class="modal__close">
-        <span @click="setIsOpenModal(null, false)">X</span>
+        <img :src = "close" @click="setIsOpenModal(null, false)"/>
       </div>
       <div class="modal__content">
         <Flicking ref="flicking" class="slider">
@@ -41,11 +41,17 @@
 
 <script>
 import { Flicking } from "@egjs/vue-flicking";
+import close from '@/assets/closeBlack.png'
 
 export default {
   name: "ModalWindow",
   components: { Flicking },
   props: ["setIsOpenModal", "cardInfo"],
+  data(){
+    return{
+      close,
+    }
+  },
   methods: {
     buttonNext() {
       this.$refs.flicking.next();
@@ -77,8 +83,8 @@ export default {
 .modal {
   background-color: white;
   width: 500px;
-  height: 500px;
-  padding: 10px 20px;
+  min-height: 500px;
+  padding: 12px 20px;
   border-radius: 6px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   position: relative;
@@ -123,11 +129,10 @@ export default {
   &__close {
     display: flex;
     justify-content: flex-end;
-    span {
-      font-size: 18px;
-      font-weight: bold;
-      width: 10px;
-      cursor: pointer;
+    img {
+       width:16px;
+       height:16px;
+       margin:3px 0px;
     }
   }
 }
@@ -177,5 +182,11 @@ export default {
   &__prev_button {
     left: 15px;
   }
-}
+} 
+
+ @media (max-width:500px){
+   .modal{
+    width:350px;
+   }
+ }
 </style>

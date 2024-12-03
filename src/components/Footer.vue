@@ -45,7 +45,7 @@ export default {
 <style lang="scss">
 .footer {
   background: #eceaea;
-  height: 96px;
+  min-height: 96px;
   padding-top: 20px;
   &__container {
     max-width: 1360px;
@@ -83,21 +83,44 @@ export default {
   }
 }
 
-@media (max-width:1380px){
-   .footer{
-     width:100%;
-     &__container{
+@media (max-width: 1380px) {
+  .footer {
+    width: 100%;
+    &__container {
       max-width: 1240px;
-      margin:0 auto;
-     }
-     &__navigation{
-      padding-left:10px;
-     }
-     &__wrapper{
+      margin: 0 auto;
+    }
+    &__navigation {
+      padding-left: 10px;
+    }
+    &__wrapper {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-     }
-   }
+    }
+  }
+}
+
+@media (max-width: 624px) {
+  .footer {
+    padding: 20px 10px;
+    &__wrapper {
+      grid-template-columns: repeat(1, 1fr);
+      justify-content: space-between;
+    }
+    &__navigation__list {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      a {
+        font-size: var(--text-size);
+      }
+    }
+    &__right {
+      flex-direction: column;
+      gap: 0px;
+    }
+  }
 }
 </style>
